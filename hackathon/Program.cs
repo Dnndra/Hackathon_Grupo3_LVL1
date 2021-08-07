@@ -23,25 +23,39 @@ namespace hackathon
 					var reader = new StreamReader("Maze 2 LVL 1.csv");
 					char[,] matriz = new char[19, 19];
 
-					while (!reader.EndOfStream)
+                    try
                     {
-						var linea = reader.ReadLine();
-						var valores = linea.Split(',');
+						while (!reader.EndOfStream)
+						{
+							var linea = reader.ReadLine();
+							var valores = linea.Split(",");
 
-						for (int i = 0; i<19; i++)
-                        {
-							
-							for (int j = 0; j<19; j++)
-                            {
-								
-								matriz[i, j] = Convert.ToChar(valores[j]);
-								
-                            }
-                        }
+							for (int i = 0; i < 19; i++)
+							{
+
+								for (int j = 0; j < 19; j++)
+								{
+
+									matriz[i, j] = Convert.ToChar(valores[j]);
+
+								}
+							}
+						}
+					}
+                    catch (Exception)
+                    {
+						Console.WriteLine("Ejercicio no resuelto");
+						Console.ReadKey();
+						Console.Clear();
+						goto INICIO;
+					
                     }
+					
 
 					Console.ReadKey();
-                    break;
+					Console.Clear();
+					goto INICIO;
+                    
 
                 case 2:
 
@@ -143,8 +157,10 @@ namespace hackathon
 						}
 					}
 					Console.ReadKey();
+					Console.Clear();
+					goto INICIO;
 
-                    break;
+                  
 
                 case 3:
 					//Ecuaciones cuadraticas
@@ -229,7 +245,7 @@ namespace hackathon
 					goto INICIO;
 			
 
-				break;
+			
 
                 case 4:
                     //triangulo pascal 
@@ -269,7 +285,7 @@ namespace hackathon
                     Console.ReadKey();
 					Console.Clear();
 					goto INICIO;
-                    break;
+                  
             }
 
 
